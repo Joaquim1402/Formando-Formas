@@ -51,9 +51,11 @@
 
     .subtitle {
       text-align: center;
-      margin: 15px 20px;
-      font-size: 1.2em;
-      color: #5a189a;
+      margin: 25px 20px 10px;
+      font-size: 1.3em;
+      color: #6a0dad;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
 
     .shapes-container {
@@ -97,8 +99,6 @@
 
     .rectangle {
       background: #66cc99;
-      width: 130px;
-      height: 130px;
     }
 
     .triangle {
@@ -107,34 +107,25 @@
       border-left: 65px solid transparent;
       border-right: 65px solid transparent;
       border-bottom: 130px solid #f96b6b;
-      background: none;
+      position: relative;
     }
 
-    .triangle-label {
+    .triangle .label {
       position: absolute;
-      top: 75%;
+      top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 1rem;
       color: white;
       font-weight: bold;
       pointer-events: none;
+      text-align: center;
     }
 
     .label {
-      position: absolute;
-      bottom: 10px;
+      margin-top: 10px;
       font-size: 1rem;
       color: #333;
-      font-weight: bold;
-    }
-
-    .circle .label,
-    .square .label,
-    .rectangle .label {
-      color: #333;
-      position: static;
-      margin-top: 10px;
     }
 
     footer {
@@ -159,7 +150,7 @@
   </header>
 
   <div class="subtitle">
-    Aprenda brincando: clique nas formas para ouvir seus nomes!
+    Aprenda se divertindo! Clique nas formas para ouvir seus nomes.
   </div>
 
   <div class="shapes-container">
@@ -176,7 +167,7 @@
     </div>
 
     <div class="shape triangle" onclick="falar('Triângulo')">
-      <div class="triangle-label">Triângulo</div>
+      <div class="label">Triângulo</div>
     </div>
   </div>
 
