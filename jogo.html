@@ -3,174 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formando Formas - Jogo</title>
+  <title>Formas Geométricas Interativas</title>
   <style>
     body {
-      margin: 0;
-      overflow: hidden;
-      background: #f0f0f0;
-      font-family: sans-serif;
+      background: #fafafa;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
     }
 
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
+    h1 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .shapes-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
     }
 
     .shape {
-      position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid transparent;
+      transition: 0.3s;
       cursor: pointer;
-      z-index: 1;
-      transition: transform 0.2s ease-in-out;
+      flex-direction: column;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 10px;
     }
 
     .shape:hover {
       transform: scale(1.1);
+      border-color: #000;
     }
 
     .circle {
       border-radius: 50%;
-      background-color: #3498db;
-    }
-
-    .rectangle {
-      background-color: #2ecc71;
+      background: #4aa3df;
     }
 
     .square {
-      background-color: #b28dff;
+      background: #ffcc66;
+    }
+
+    .rectangle {
+      width: 160px;
+      height: 100px;
+      background: #66cc99;
     }
 
     .triangle {
       width: 0;
       height: 0;
-      border-left: 40px solid transparent;
-      border-right: 40px solid transparent;
-      border-bottom: 80px solid #e74c3c;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 120px solid #f96b6b;
       background: none;
     }
 
-    .feedback {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 10px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      font-size: 1.2rem;
-      color: #333;
-      font-weight: bold;
-      display: none;
+    .label {
+      margin-top: 10px;
     }
 
-    header {
-      background-color: #b28dff;
-      padding: 10px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .triangle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
-    header a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    header a:hover {
-      color: #ff8c00;
-    }
-
   </style>
 </head>
 <body>
-  <!-- Header with navigation links -->
-  <header>
-    <a href="index.html">Página Inicial</a>
-    <a href="dinamicas.html">Dinâmicas</a>
-    <a href="sobrenos.html">Sobre Nós</a>
-  </header>
+  <h1>Vamos aprender formas geométricas!</h1>
+  <div class="shapes-container">
+    <div class="shape circle" onclick="falar('Círculo')">
+      <div></div>
+      <div class="label">Círculo</div>
+    </div>
 
-  <canvas id="canvas"></canvas>
-  <div id="feedback" class="feedback">Clique em duas formas para conectar</div>
+    <div class="shape square" onclick="falar('Quadrado')">
+      <div class="label">Quadrado</div>
+    </div>
 
-  <!-- Formas -->
-  <div class="shape square" style="top: 50px; left: 100px;"></div>
-  <div class="shape circle" style="top: 200px; left: 300px;"></div>
-  <div class="shape rectangle" style="top: 400px; left: 150px;"></div>
-  <div class="shape triangle" style="top: 300px; left: 500px;"></div>
+    <div class="shape rectangle" onclick="falar('Retângulo')">
+      <div class="label">Retângulo</div>
+    </div>
+
+    <div class="shape triangle-wrapper" onclick="falar('Triângulo')">
+      <div class="triangle"></div>
+      <div class="label">Triângulo</div>
+    </div>
+  </div>
 
   <script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const feedback = document.getElementById('feedback');
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let selectedShapes = [];
-
-    function getCenter(shape) {
-      const rect = shape.getBoundingClientRect();
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
-      return { x, y };
+    function falar(texto) {
+      const msg = new SpeechSynthesisUtterance(texto);
+      msg.lang = "pt-BR";
+      window.speechSynthesis.speak(msg);
     }
-
-    function drawLine(from, to) {
-      ctx.beginPath();
-      ctx.moveTo(from.x, from.y);
-      ctx.lineTo(to.x, to.y);
-      ctx.strokeStyle = '#555';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-
-    function showFeedback(message) {
-      feedback.textContent = message;
-      feedback.style.display = 'block';
-      setTimeout(() => {
-        feedback.style.display = 'none';
-      }, 2000);
-    }
-
-    document.querySelectorAll('.shape').forEach(shape => {
-      shape.addEventListener('click', () => {
-        // Highlight the selected shape with a quick color change
-        shape.style.transition = 'background-color 0.2s ease-in-out';
-        shape.style.backgroundColor = '#f39c12';
-        
-        setTimeout(() => {
-          shape.style.backgroundColor = '';
-        }, 200);
-
-        selectedShapes.push(shape);
-        
-        if (selectedShapes.length === 2) {
-          const pointA = getCenter(selectedShapes[0]);
-          const pointB = getCenter(selectedShapes[1]);
-          drawLine(pointA, pointB);
-          
-          // Provide feedback to the user
-          showFeedback("Você conectou as formas!");
-          
-          // Clear selection after drawing the line
-          selectedShapes = [];
-        }
-      });
-    });
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
   </script>
 </body>
 </html>
