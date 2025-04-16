@@ -24,6 +24,7 @@
       position: sticky;
       top: 0;
       z-index: 1;
+      text-align: center;
     }
 
     header h1 {
@@ -34,10 +35,13 @@
 
     nav {
       margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     nav a {
-      margin: 0 15px;
       color: white;
       text-decoration: none;
       font-weight: bold;
@@ -101,14 +105,6 @@
       font-weight: bold;
     }
 
-    .rectangle {
-      display: inline-block;
-      width: 50px;
-      height: 25px;
-      background-color: red;
-      border-radius: 6px;
-    }
-
     footer {
       background-color: #b28dff;
       color: white;
@@ -138,7 +134,7 @@
           <button onclick="checkAnswer(this, '🟡', '🟡')" aria-label="Escolha: Círculo Amarelo">🟡</button>
           <button onclick="checkAnswer(this, '🟦', '🟡')" aria-label="Escolha: Quadrado Azul">🟦</button>
           <button onclick="checkAnswer(this, '🔺', '🟡')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🟡')" aria-label="Escolha: Retângulo Vermelho"><span class="rectangle"></span></button>
+          <button onclick="checkAnswer(this, '▭', '🟡')" aria-label="Escolha: Retângulo Vermelho">▭</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -150,7 +146,7 @@
           <button onclick="checkAnswer(this, '🟡', '🟦')" aria-label="Escolha: Círculo Amarelo">🟡</button>
           <button onclick="checkAnswer(this, '🟦', '🟦')" aria-label="Escolha: Quadrado Azul">🟦</button>
           <button onclick="checkAnswer(this, '🔺', '🟦')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🟦')" aria-label="Escolha: Retângulo Vermelho"><span class="rectangle"></span></button>
+          <button onclick="checkAnswer(this, '▭', '🟦')" aria-label="Escolha: Retângulo Vermelho">▭</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -162,7 +158,7 @@
           <button onclick="checkAnswer(this, '🟡', '🔺')" aria-label="Escolha: Círculo Amarelo">🟡</button>
           <button onclick="checkAnswer(this, '🟦', '🔺')" aria-label="Escolha: Quadrado Azul">🟦</button>
           <button onclick="checkAnswer(this, '🔺', '🔺')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🔺')" aria-label="Escolha: Retângulo Vermelho"><span class="rectangle"></span></button>
+          <button onclick="checkAnswer(this, '▭', '🔺')" aria-label="Escolha: Retângulo Vermelho">▭</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -174,7 +170,7 @@
           <button onclick="checkAnswer(this, '🟡', '▭')" aria-label="Escolha: Círculo Amarelo">🟡</button>
           <button onclick="checkAnswer(this, '🟦', '▭')" aria-label="Escolha: Quadrado Azul">🟦</button>
           <button onclick="checkAnswer(this, '🔺', '▭')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '▭')" aria-label="Escolha: Retângulo Vermelho"><span class="rectangle"></span></button>
+          <button onclick="checkAnswer(this, '▭', '▭')" aria-label="Escolha: Retângulo Vermelho">▭</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -182,13 +178,13 @@
   </main>
 
   <footer>
-    &copy; 2025 Formando Formas. Elaborado por estudantes do curso de licenciatura do IFPE.
+    Elaborado por estudantes do curso de Licenciatura do IFPE
   </footer>
 
   <script>
     function checkAnswer(button, selected, correct) {
       const feedback = button.closest('.card').querySelector('.feedback');
-      if (selected === correct || button.innerText === correct || button.querySelector('.rectangle')) {
+      if (selected === correct) {
         feedback.innerHTML = '<strong>Parabéns! Você acertou! 🎉</strong>';
         feedback.style.color = 'green';
       } else {
