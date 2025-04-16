@@ -29,8 +29,12 @@
     }
 
     header h1 {
-      margin: 0 0 15px;
+      margin: 0;
       font-size: 2em;
+    }
+
+    header nav {
+      margin-top: 10px;
     }
 
     header a {
@@ -45,6 +49,13 @@
       color: #ff8c00;
     }
 
+    .subtitle {
+      text-align: center;
+      margin: 15px 20px;
+      font-size: 1.2em;
+      color: #5a189a;
+    }
+
     .shapes-container {
       display: flex;
       justify-content: center;
@@ -54,19 +65,19 @@
     }
 
     .shape {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 3px solid transparent;
-      transition: 0.3s;
-      cursor: pointer;
       flex-direction: column;
       font-weight: bold;
       font-size: 1.1em;
       color: #fff;
-      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, border 0.3s;
+      position: relative;
+      border: 3px solid transparent;
     }
 
     .shape:hover {
@@ -85,36 +96,45 @@
     }
 
     .rectangle {
-      width: 160px;
-      height: 100px;
       background: #66cc99;
+      width: 130px;
+      height: 130px;
     }
 
     .triangle {
       width: 0;
       height: 0;
-      border-left: 60px solid transparent;
-      border-right: 60px solid transparent;
-      border-bottom: 120px solid #f96b6b;
-      position: relative;
+      border-left: 65px solid transparent;
+      border-right: 65px solid transparent;
+      border-bottom: 130px solid #f96b6b;
+      background: none;
     }
 
-    .triangle .label {
+    .triangle-label {
       position: absolute;
-      top: 60%;
+      top: 75%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 1rem;
-      color: #fff;
+      color: white;
       font-weight: bold;
-      text-align: center;
       pointer-events: none;
     }
 
     .label {
-      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
       font-size: 1rem;
       color: #333;
+      font-weight: bold;
+    }
+
+    .circle .label,
+    .square .label,
+    .rectangle .label {
+      color: #333;
+      position: static;
+      margin-top: 10px;
     }
 
     footer {
@@ -131,10 +151,16 @@
 <body>
   <header>
     <h1>Formando Formas - Formas Geométricas</h1>
-    <a href="index.html">Página Inicial</a>
-    <a href="dinamicas.html">Dinâmicas</a>
-    <a href="sobrenos.html">Sobre Nós</a>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="dinamicas.html">Dinâmicas</a>
+      <a href="sobrenos.html">Sobre Nós</a>
+    </nav>
   </header>
+
+  <div class="subtitle">
+    Aprenda brincando: clique nas formas para ouvir seus nomes!
+  </div>
 
   <div class="shapes-container">
     <div class="shape circle" onclick="falar('Círculo')">
@@ -150,7 +176,7 @@
     </div>
 
     <div class="shape triangle" onclick="falar('Triângulo')">
-      <div class="label">Triângulo</div>
+      <div class="triangle-label">Triângulo</div>
     </div>
   </div>
 
