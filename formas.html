@@ -16,9 +16,9 @@
       padding: 0;
       display: flex;
       flex-direction: column;
+      align-items: center;
       min-height: 100vh;
       color: #4b0082;
-      align-items: center;
     }
 
     header {
@@ -47,8 +47,6 @@
       color: #4b0082;
       margin: 30px 0 10px;
       text-align: center;
-      flex-grow: 1;
-      border: 2px solid red; /* Remova depois de testar */
     }
 
     .shapes-container {
@@ -96,13 +94,22 @@
       background: #66cc99;
     }
 
+    .triangle-container {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
     .triangle {
       width: 0;
       height: 0;
       border-left: 60px solid transparent;
       border-right: 60px solid transparent;
       border-bottom: 120px solid #f96b6b;
-      position: relative;
+      position: absolute;
     }
 
     .triangle .label {
@@ -157,7 +164,8 @@
       <div class="label">Retângulo</div>
     </div>
 
-    <div class="shape triangle" onclick="falar('Triângulo')">
+    <div class="triangle-container" onclick="falar('Triângulo')">
+      <div class="triangle"></div>
       <div class="label">Triângulo</div>
     </div>
   </div>
