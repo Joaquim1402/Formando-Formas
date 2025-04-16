@@ -16,7 +16,6 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
       min-height: 100vh;
       color: #4b0082;
     }
@@ -27,7 +26,11 @@
       text-align: center;
       color: white;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 100%;
+    }
+
+    header h1 {
+      margin: 0 0 15px;
+      font-size: 2em;
     }
 
     header a {
@@ -40,13 +43,6 @@
 
     header a:hover {
       color: #ff8c00;
-    }
-
-    h1 {
-      font-size: 2.2em;
-      color: #4b0082;
-      margin: 30px 0 10px;
-      text-align: center;
     }
 
     .shapes-container {
@@ -94,22 +90,13 @@
       background: #66cc99;
     }
 
-    .triangle-container {
-      width: 120px;
-      height: 120px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
     .triangle {
       width: 0;
       height: 0;
       border-left: 60px solid transparent;
       border-right: 60px solid transparent;
       border-bottom: 120px solid #f96b6b;
-      position: absolute;
+      position: relative;
     }
 
     .triangle .label {
@@ -138,18 +125,16 @@
       padding: 15px;
       font-size: 0.95rem;
       box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-      width: 100%;
     }
   </style>
 </head>
 <body>
   <header>
+    <h1>Formando Formas - Formas Geométricas</h1>
     <a href="index.html">Página Inicial</a>
     <a href="dinamicas.html">Dinâmicas</a>
     <a href="sobrenos.html">Sobre Nós</a>
   </header>
-
-  <h1>Formando Formas - Formas Geométricas</h1>
 
   <div class="shapes-container">
     <div class="shape circle" onclick="falar('Círculo')">
@@ -164,8 +149,7 @@
       <div class="label">Retângulo</div>
     </div>
 
-    <div class="triangle-container" onclick="falar('Triângulo')">
-      <div class="triangle"></div>
+    <div class="shape triangle" onclick="falar('Triângulo')">
       <div class="label">Triângulo</div>
     </div>
   </div>
