@@ -73,17 +73,8 @@
     }
 
     .shape {
-      width: 130px;
-      height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.1em;
-      color: #fff;
       cursor: pointer;
       transition: transform 0.3s, border 0.3s, background-color 0.3s;
-      position: relative;
       border: 3px solid transparent;
     }
 
@@ -93,16 +84,21 @@
     }
 
     .circle {
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       background: #4aa3df;
     }
 
     .square {
+      width: 130px;
+      height: 130px;
       background: #ffcc66;
-      color: #333;
     }
 
     .rectangle {
+      width: 160px;
+      height: 100px;
       background: #66cc99;
     }
 
@@ -112,20 +108,20 @@
       border-left: 65px solid transparent;
       border-right: 65px solid transparent;
       border-bottom: 130px solid #f96b6b;
-      background: transparent;
+      transition: border-bottom-color 0.3s, transform 0.3s, border 0.3s;
     }
 
-    /* Hover para triângulo */
     .triangle:hover {
       border-bottom-color: #000;
+      transform: scale(1.1);
     }
 
     .label {
       margin-top: 10px;
       font-size: 1rem;
       color: #333;
-      text-align: center;
       font-weight: bold;
+      text-align: center;
     }
 
     footer {
