@@ -76,8 +76,8 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      min-height: 140px; /* padroniza o alinhamento vertical */
-      width: 160px; /* mesmo espaço para todas as formas */
+      min-height: 140px;
+      width: 160px;
     }
 
     .shape {
@@ -110,18 +110,23 @@
       background: #66cc99;
     }
 
+    .triangle-wrapper {
+      padding: 5px;
+      border: 3px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .triangle-wrapper:hover {
+      border-color: #000;
+      transform: scale(1.1);
+    }
+
     .triangle {
       width: 0;
       height: 0;
       border-left: 65px solid transparent;
       border-right: 65px solid transparent;
       border-bottom: 130px solid #f96b6b;
-      transition: transform 0.3s, filter 0.3s;
-    }
-
-    .triangle:hover {
-      transform: scale(1.1);
-      filter: brightness(0.9); /* efeito de leve escurecimento */
     }
 
     .label {
@@ -181,7 +186,9 @@
 
     <div class="shape-container">
       <div class="shape-box">
-        <div class="triangle" onclick="falar('Triângulo')"></div>
+        <div class="triangle-wrapper" onclick="falar('Triângulo')">
+          <div class="triangle"></div>
+        </div>
       </div>
       <div class="label">Triângulo</div>
     </div>
