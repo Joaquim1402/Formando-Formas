@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formando Formas - Dinâmicas</title>
   <style>
+    /* Estilos gerais */
     body {
       font-family: 'Arial Rounded MT Bold', sans-serif;
       background: linear-gradient(to bottom right, #ffe4ec, #d6f0ff);
       margin: 0;
       padding: 0;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Garante que o rodapé fique no final da página */
       color: #4b0082;
     }
 
@@ -21,6 +24,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
+      z-index: 1;
     }
 
     header h1 {
@@ -47,6 +51,7 @@
     }
 
     main {
+      flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
       padding: 50px 20px;
     }
 
@@ -96,6 +101,14 @@
       font-size: 1.2rem;
       font-weight: bold;
     }
+
+    footer {
+      background-color: #b28dff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -115,10 +128,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Círculo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟡')">🟡</button>
-          <button onclick="checkAnswer(this, '🟥', '🟡')">🟥</button>
-          <button onclick="checkAnswer(this, '🔺', '🟡')">🔺</button>
-          <button onclick="checkAnswer(this, '🟦', '🟡')">🟦</button>
+          <button onclick="checkAnswer(this, '🟡', '🟡')" aria-label="Escolha: Círculo">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🟡')" aria-label="Escolha: Quadrado Vermelho">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🟡')" aria-label="Escolha: Triângulo Vermelho">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🟡')" aria-label="Escolha: Quadrado Azul">🟦</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -127,10 +140,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Quadrado?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟦')">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '🟦')">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '🟦')">🔺</button>
-          <button onclick="checkAnswer(this, '🟥', '🟦')">🟥</button>
+          <button onclick="checkAnswer(this, '🟡', '🟦')" aria-label="Escolha: Círculo">🟡</button>
+          <button onclick="checkAnswer(this, '🟦', '🟦')" aria-label="Escolha: Quadrado Azul">🟦</button>
+          <button onclick="checkAnswer(this, '🔺', '🟦')" aria-label="Escolha: Triângulo Vermelho">🔺</button>
+          <button onclick="checkAnswer(this, '🟥', '🟦')" aria-label="Escolha: Quadrado Vermelho">🟥</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -139,10 +152,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Triângulo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🔺')">🟡</button>
-          <button onclick="checkAnswer(this, '🟥', '🔺')">🟥</button>
-          <button onclick="checkAnswer(this, '🔺', '🔺')">🔺</button>
-          <button onclick="checkAnswer(this, '🟦', '🔺')">🟦</button>
+          <button onclick="checkAnswer(this, '🟡', '🔺')" aria-label="Escolha: Círculo">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🔺')" aria-label="Escolha: Quadrado Vermelho">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🔺')" aria-label="Escolha: Triângulo Vermelho">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🔺')" aria-label="Escolha: Quadrado Azul">🟦</button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -151,20 +164,20 @@
       <div class="card">
         <h3>Qual dessas figuras é um Retângulo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟥', '🟥')">🟥</button>
-          <button onclick="checkAnswer(this, '🟦', '🟥')">🟦</button>
-          <button onclick="checkAnswer(this, '🟡', '🟥')">🟡</button>
-          <button onclick="checkAnswer(this, '🔺', '🟥')">🔺</button>
+          <button onclick="checkAnswer(this, '🟥', '🟥')" aria-label="Escolha: Quadrado Vermelho">🟥</button>
+          <button onclick="checkAnswer(this, '🟦', '🟥')" aria-label="Escolha: Quadrado Azul">🟦</button>
+          <button onclick="checkAnswer(this, '🟡', '🟥')" aria-label="Escolha: Círculo">🟡</button>
+          <button onclick="checkAnswer(this, '🔺', '🟥')" aria-label="Escolha: Triângulo Vermelho">🔺</button>
         </div>
         <p class="feedback"></p>
       </div>
     </div>
   </main>
 
-   <footer>
+  <footer>
     <p>| 2025 Formando Formas - Elaborado por estudantes do curso de licenciatura do IFPE |</p>
   </footer>
-  
+
   <script>
     function checkAnswer(button, selected, correct) {
       const feedback = button.closest('.card').querySelector('.feedback');
@@ -177,6 +190,5 @@
       }
     }
   </script>
- 
 </body>
 </html>
