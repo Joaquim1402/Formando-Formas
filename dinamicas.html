@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formando Formas - Dinâmicas</title>
+  <style>
+    body {
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      background: linear-gradient(to bottom right, #ffe4ec, #d6f0ff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #4b0082;
+    }
+    header {
+      background-color: #b28dff;
+      padding: 20px;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    main {
+      padding: 20px;
+    }
+    .activity {
+      margin-top: 30px;
+      font-size: 1.1rem;
+    }
+    .card {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border: 4px solid #b28dff;
+      border-radius: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .quiz {
+      margin-top: 20px;
+    }
+    .quiz button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background-color: #b28dff;
+      color: white;
+      cursor: pointer;
+    }
+    .quiz button:hover {
+      background-color: #9d6eff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Formando Formas</h1>
+  </header>
+
+  <main>
+    <div class="activity">
+      <h2>Vamos brincar?</h2>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Círculo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🟡')">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🟡')">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🟡')">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🟡')">🟦</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Quadrado?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🟦')">🟡</button>
+          <button onclick="checkAnswer(this, '🟦', '🟦')">🟦</button>
+          <button onclick="checkAnswer(this, '🔺', '🟦')">🔺</button>
+          <button onclick="checkAnswer(this, '🟥', '🟦')">🟥</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Triângulo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🔺')">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🔺')">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🔺')">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🔺')">🟦</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Retângulo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟥', '🟥')">🟥</button>
+          <button onclick="checkAnswer(this, '🟦', '🟥')">🟦</button>
+          <button onclick="checkAnswer(this, '🟡', '🟥')">🟡</button>
+          <button onclick="checkAnswer(this, '🔺', '🟥')">🔺</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function checkAnswer(button, selected, correct) {
+      const feedback = button.closest('.card').querySelector('.feedback');
+      if (selected === correct) {
+        feedback.innerHTML = '<strong>Parabéns! Você acertou! 🎉</strong>';
+        feedback.style.color = 'green';
+      } else {
+        feedback.innerHTML = 'Ops! Tente novamente. 😊';
+        feedback.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
 
