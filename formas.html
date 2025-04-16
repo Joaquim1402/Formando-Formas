@@ -110,22 +110,12 @@
       position: relative;
     }
 
-    .triangle .label {
-      position: absolute;
-      top: 65%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.1em; /* Mesmo tamanho de fonte dos outros */
-      color: #fff; /* Cor branca igual aos outros */
-      font-weight: bold;
-      pointer-events: none;
-      text-align: center;
-    }
-
     .label {
       margin-top: 10px;
       font-size: 1rem;
       color: #333;
+      text-align: center;
+      font-weight: bold;
     }
 
     footer {
@@ -154,21 +144,17 @@
   </div>
 
   <div class="shapes-container">
-    <div class="shape circle" onclick="falar('Círculo')">
-      <div class="label">Círculo</div>
-    </div>
+    <div class="shape circle" onclick="falar('Círculo')"></div>
+    <div class="label">Círculo</div>
 
-    <div class="shape square" onclick="falar('Quadrado')">
-      <div class="label">Quadrado</div>
-    </div>
+    <div class="shape square" onclick="falar('Quadrado')"></div>
+    <div class="label">Quadrado</div>
 
-    <div class="shape rectangle" onclick="falar('Retângulo')">
-      <div class="label">Retângulo</div>
-    </div>
+    <div class="shape rectangle" onclick="falar('Retângulo')"></div>
+    <div class="label">Retângulo</div>
 
-    <div class="triangle" onclick="falar('Triângulo')">
-      <div class="label">Triângulo</div>
-    </div>
+    <div class="shape triangle" onclick="falar('Triângulo')"></div>
+    <div class="label">Triângulo</div>
   </div>
 
   <footer>
