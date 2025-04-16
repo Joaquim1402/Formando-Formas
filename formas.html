@@ -110,23 +110,36 @@
       background: #66cc99;
     }
 
-    .triangle-wrapper {
-      padding: 5px;
-      border: 3px solid transparent;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-
-    .triangle-wrapper:hover {
-      border-color: #000;
-      transform: scale(1.1);
-    }
-
     .triangle {
+      position: relative;
       width: 0;
       height: 0;
       border-left: 65px solid transparent;
       border-right: 65px solid transparent;
       border-bottom: 130px solid #f96b6b;
+      transition: transform 0.3s;
+    }
+
+    .triangle::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -68px;
+      width: 0;
+      height: 0;
+      border-left: 68px solid transparent;
+      border-right: 68px solid transparent;
+      border-bottom: 136px solid transparent;
+      z-index: -1;
+      transition: border-bottom-color 0.3s;
+    }
+
+    .triangle:hover {
+      transform: scale(1.1);
+    }
+
+    .triangle:hover::after {
+      border-bottom-color: #000;
     }
 
     .label {
@@ -186,9 +199,7 @@
 
     <div class="shape-container">
       <div class="shape-box">
-        <div class="triangle-wrapper" onclick="falar('Triângulo')">
-          <div class="triangle"></div>
-        </div>
+        <div class="triangle" onclick="falar('Triângulo')"></div>
       </div>
       <div class="label">Triângulo</div>
     </div>
