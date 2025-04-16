@@ -12,6 +12,9 @@
       padding: 0;
       text-align: center;
       color: #4b0082;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
       background-color: #b28dff;
@@ -38,6 +41,7 @@
       color: #ff8c00;
     }
     main {
+      flex: 1;
       padding: 40px 20px;
     }
     .intro-card, .video-card {
@@ -70,6 +74,13 @@
       margin-top: 20px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+    footer {
+      background-color: #b28dff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -94,6 +105,9 @@
       <iframe src="https://www.youtube.com/embed/XATPQpqrKzU" title="Videoaula de Formas Geométricas" allowfullscreen></iframe>
     </div>
   </main> 
-  
+
+  <footer>
+    Elaborado por estudantes do curso de Licenciatura do IFPE
+  </footer>
 </body>
 </html>
