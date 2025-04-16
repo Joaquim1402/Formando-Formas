@@ -72,9 +72,17 @@
       align-items: center;
     }
 
+    .shape-box {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 140px; /* padroniza o alinhamento vertical */
+      width: 160px; /* mesmo espaço para todas as formas */
+    }
+
     .shape {
       cursor: pointer;
-      transition: transform 0.3s, border 0.3s, background-color 0.3s;
+      transition: transform 0.3s, border 0.3s;
       border: 3px solid transparent;
     }
 
@@ -108,12 +116,12 @@
       border-left: 65px solid transparent;
       border-right: 65px solid transparent;
       border-bottom: 130px solid #f96b6b;
-      transition: border-bottom-color 0.3s, transform 0.3s, border 0.3s;
+      transition: transform 0.3s, filter 0.3s;
     }
 
     .triangle:hover {
-      border-bottom-color: #000;
       transform: scale(1.1);
+      filter: brightness(0.9); /* efeito de leve escurecimento */
     }
 
     .label {
@@ -151,22 +159,30 @@
 
   <div class="shapes-container">
     <div class="shape-container">
-      <div class="shape circle" onclick="falar('Círculo')"></div>
+      <div class="shape-box">
+        <div class="shape circle" onclick="falar('Círculo')"></div>
+      </div>
       <div class="label">Círculo</div>
     </div>
 
     <div class="shape-container">
-      <div class="shape square" onclick="falar('Quadrado')"></div>
+      <div class="shape-box">
+        <div class="shape square" onclick="falar('Quadrado')"></div>
+      </div>
       <div class="label">Quadrado</div>
     </div>
 
     <div class="shape-container">
-      <div class="shape rectangle" onclick="falar('Retângulo')"></div>
+      <div class="shape-box">
+        <div class="shape rectangle" onclick="falar('Retângulo')"></div>
+      </div>
       <div class="label">Retângulo</div>
     </div>
 
     <div class="shape-container">
-      <div class="triangle shape" onclick="falar('Triângulo')"></div>
+      <div class="shape-box">
+        <div class="triangle" onclick="falar('Triângulo')"></div>
+      </div>
       <div class="label">Triângulo</div>
     </div>
   </div>
