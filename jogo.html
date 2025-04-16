@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formas Geométricas</title>
+  <title>Formando Formas - Jogo</title>
   <style>
     body {
       margin: 0;
@@ -25,6 +25,11 @@
       height: 80px;
       cursor: pointer;
       z-index: 1;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .shape:hover {
+      transform: scale(1.1);
     }
 
     .circle {
@@ -36,6 +41,10 @@
       background-color: #2ecc71;
     }
 
+    .square {
+      background-color: #b28dff;
+    }
+
     .triangle {
       width: 0;
       height: 0;
@@ -44,21 +53,65 @@
       border-bottom: 80px solid #e74c3c;
       background: none;
     }
+
+    .feedback {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      font-size: 1.2rem;
+      color: #333;
+      font-weight: bold;
+      display: none;
+    }
+
+    header {
+      background-color: #b28dff;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header a:hover {
+      color: #ff8c00;
+    }
+
   </style>
 </head>
 <body>
+  <!-- Header with navigation links -->
+  <header>
+    <a href="index.html">Página Inicial</a>
+    <a href="dinamicas.html">Dinâmicas</a>
+    <a href="sobrenos.html">Sobre Nós</a>
+  </header>
+
   <canvas id="canvas"></canvas>
+  <div id="feedback" class="feedback">Clique em duas formas para conectar</div>
 
   <!-- Formas -->
-  <div class="shape circle" style="top: 50px; left: 100px;"></div>
-  <div class="shape rectangle" style="top: 200px; left: 300px;"></div>
-  <div class="shape triangle" style="top: 400px; left: 150px;"></div>
-  <div class="shape circle" style="top: 300px; left: 500px;"></div>
-  <div class="shape rectangle" style="top: 100px; left: 600px;"></div>
+  <div class="shape square" style="top: 50px; left: 100px;"></div>
+  <div class="shape circle" style="top: 200px; left: 300px;"></div>
+  <div class="shape rectangle" style="top: 400px; left: 150px;"></div>
+  <div class="shape triangle" style="top: 300px; left: 500px;"></div>
 
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
+    const feedback = document.getElementById('feedback');
+    
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -80,13 +133,35 @@
       ctx.stroke();
     }
 
+    function showFeedback(message) {
+      feedback.textContent = message;
+      feedback.style.display = 'block';
+      setTimeout(() => {
+        feedback.style.display = 'none';
+      }, 2000);
+    }
+
     document.querySelectorAll('.shape').forEach(shape => {
       shape.addEventListener('click', () => {
+        // Highlight the selected shape with a quick color change
+        shape.style.transition = 'background-color 0.2s ease-in-out';
+        shape.style.backgroundColor = '#f39c12';
+        
+        setTimeout(() => {
+          shape.style.backgroundColor = '';
+        }, 200);
+
         selectedShapes.push(shape);
+        
         if (selectedShapes.length === 2) {
           const pointA = getCenter(selectedShapes[0]);
           const pointB = getCenter(selectedShapes[1]);
           drawLine(pointA, pointB);
+          
+          // Provide feedback to the user
+          showFeedback("Você conectou as formas!");
+          
+          // Clear selection after drawing the line
           selectedShapes = [];
         }
       });
