@@ -116,14 +116,50 @@
 
     <div class="activity" id="dinamicas">
       <h2>Vamos brincar?</h2>
-      <p>Qual dessas figuras é um círculo?</p>
-      <div class="quiz">
-        <button onclick="checkAnswer('🟡')">🟡</button>
-        <button onclick="checkAnswer('🟥')">🟥</button>
-        <button onclick="checkAnswer('🔺')">🔺</button>
-        <button onclick="checkAnswer('🟦')">🟦</button>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Círculo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🟡')">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🟡')">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🟡')">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🟡')">🟦</button>
+        </div>
+        <p class="feedback"></p>
       </div>
-      <p id="feedback"></p>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Quadrado?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🟦')">🟡</button>
+          <button onclick="checkAnswer(this, '🟦', '🟦')">🟦</button>
+          <button onclick="checkAnswer(this, '🔺', '🟦')">🔺</button>
+          <button onclick="checkAnswer(this, '🟥', '🟦')">🟥</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Triângulo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟡', '🔺')">🟡</button>
+          <button onclick="checkAnswer(this, '🟥', '🔺')">🟥</button>
+          <button onclick="checkAnswer(this, '🔺', '🔺')">🔺</button>
+          <button onclick="checkAnswer(this, '🟦', '🔺')">🟦</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
+
+      <div class="card">
+        <h3>Qual dessas figuras é um Retângulo?</h3>
+        <div class="quiz">
+          <button onclick="checkAnswer(this, '🟥', '🟥')">🟥</button>
+          <button onclick="checkAnswer(this, '🟦', '🟥')">🟦</button>
+          <button onclick="checkAnswer(this, '🟡', '🟥')">🟡</button>
+          <button onclick="checkAnswer(this, '🔺', '🟥')">🔺</button>
+        </div>
+        <p class="feedback"></p>
+      </div>
     </div>
 
     <div id="videoaulas" class="activity">
@@ -152,9 +188,9 @@
       document.getElementById('info').style.display = 'none';
     }
 
-    function checkAnswer(selected) {
-      const feedback = document.getElementById('feedback');
-      if (selected === '🟡') {
+    function checkAnswer(button, selected, correct) {
+      const feedback = button.closest('.card').querySelector('.feedback');
+      if (selected === correct) {
         feedback.innerHTML = '<strong>Parabéns! Você acertou! 🎉</strong>';
         feedback.style.color = 'green';
       } else {
