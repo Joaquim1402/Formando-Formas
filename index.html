@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formando Formas </title>
+  <title>Formando Formas</title>
   <style>
     body {
       font-family: 'Arial Rounded MT Bold', sans-serif;
@@ -17,37 +17,58 @@
       background-color: #b28dff;
       padding: 20px;
       color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0;
       font-size: 2.5rem;
+      font-weight: bold;
     }
     nav {
       margin-top: 10px;
     }
     nav a {
-      margin: 0 10px;
+      margin: 0 15px;
       color: white;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #ff8c00;
     }
     main {
-      padding: 20px;
+      padding: 40px 20px;
     }
-    .activity {
-      margin-top: 30px;
+    .intro-card, .video-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      text-align: left;
+    }
+    .intro-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .intro-card p {
       font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .activity h2 {
+      font-size: 2rem;
+      margin-top: 20px;
     }
     iframe {
       width: 100%;
-      max-width: 560px;
-      height: 315px;
+      max-width: 800px;
+      height: 450px;
       border: none;
       border-radius: 15px;
       margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -61,16 +82,17 @@
   </header>
 
   <main>
-    <div class="activity">
+    <!-- Introdução -->
+    <div class="intro-card activity">
       <h2>Bem-vindo ao <strong>Formando Formas</strong></h2>
       <p>Nosso projeto visa ensinar geometria de forma divertida, acessível e inclusiva, especialmente para crianças com neurodivergências. Aqui, você vai aprender formas geométricas através de videoaulas e atividades interativas.</p>
     </div>
 
-    <div id="videoaulas" class="activity">
+    <!-- Videoaula -->
+    <div id="videoaulas" class="video-card activity">
       <h2>Videoaulas Introdutórias</h2>
       <iframe src="https://www.youtube.com/embed/XATPQpqrKzU" title="Videoaula de Formas Geométricas" allowfullscreen></iframe>
     </div>
-
   </main>
 </body>
 </html>
