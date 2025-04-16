@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formando Formas</title>
+  <title>Formando Formas - Videoaulas e Sobre</title>
   <style>
     body {
       font-family: 'Arial Rounded MT Bold', sans-serif;
@@ -37,59 +37,9 @@
     main {
       padding: 20px;
     }
-    .shapes {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .shape-btn {
-      font-size: 1.2rem;
-      padding: 20px;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      transition: transform 0.2s;
-    }
-    .shape-btn:hover {
-      transform: scale(1.1);
-    }
-    .circle { background-color: #f9d923; }
-    .square { background-color: #00b4d8; }
-    .triangle { background-color: #80ed99; }
-    .rectangle { background-color: #ff758f; }
-    .card {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: white;
-      border: 4px solid #b28dff;
-      border-radius: 20px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
     .activity {
       margin-top: 30px;
       font-size: 1.1rem;
-    }
-    .quiz {
-      margin-top: 20px;
-    }
-    .quiz button {
-      margin: 5px;
-      padding: 10px 15px;
-      font-size: 1rem;
-      border-radius: 10px;
-      border: none;
-      background-color: #b28dff;
-      color: white;
-      cursor: pointer;
-    }
-    .quiz button:hover {
-      background-color: #9d6eff;
     }
     iframe {
       width: 100%;
@@ -106,70 +56,11 @@
     <h1>Formando Formas</h1>
     <nav>
       <a href="#videoaulas">Videoaulas</a>
-      <a href="#dinamicas">Dinâmicas</a>
       <a href="#sobre">Sobre Nós</a>
     </nav>
   </header>
 
   <main>
-    <h2>Vamos aprender Geometria!</h2>
-    <div class="shapes">
-      <button class="shape-btn circle" onclick="showShape('Círculo', '🟡')">🟡 Círculo</button>
-      <button class="shape-btn square" onclick="showShape('Quadrado', '🟦')">🟦 Quadrado</button>
-      <button class="shape-btn triangle" onclick="showShape('Triângulo', '🔺')">🔺 Triângulo</button>
-      <button class="shape-btn rectangle" onclick="showShape('Retângulo', '🟥')">🟥 Retângulo</button>
-    </div>
-
-    <div id="info" class="card" style="display: none;"></div>
-
-    <div class="activity" id="dinamicas">
-      <h2>Vamos brincar?</h2>
-
-      <div class="card">
-        <h3>Qual dessas figuras é um Círculo?</h3>
-        <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟡')">🟡</button>
-          <button onclick="checkAnswer(this, '🟥', '🟡')">🟥</button>
-          <button onclick="checkAnswer(this, '🔺', '🟡')">🔺</button>
-          <button onclick="checkAnswer(this, '🟦', '🟡')">🟦</button>
-        </div>
-        <p class="feedback"></p>
-      </div>
-
-      <div class="card">
-        <h3>Qual dessas figuras é um Quadrado?</h3>
-        <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟦')">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '🟦')">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '🟦')">🔺</button>
-          <button onclick="checkAnswer(this, '🟥', '🟦')">🟥</button>
-        </div>
-        <p class="feedback"></p>
-      </div>
-
-      <div class="card">
-        <h3>Qual dessas figuras é um Triângulo?</h3>
-        <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🔺')">🟡</button>
-          <button onclick="checkAnswer(this, '🟥', '🔺')">🟥</button>
-          <button onclick="checkAnswer(this, '🔺', '🔺')">🔺</button>
-          <button onclick="checkAnswer(this, '🟦', '🔺')">🟦</button>
-        </div>
-        <p class="feedback"></p>
-      </div>
-
-      <div class="card">
-        <h3>Qual dessas figuras é um Retângulo?</h3>
-        <div class="quiz">
-          <button onclick="checkAnswer(this, '🟥', '🟥')">🟥</button>
-          <button onclick="checkAnswer(this, '🟦', '🟥')">🟦</button>
-          <button onclick="checkAnswer(this, '🟡', '🟥')">🟡</button>
-          <button onclick="checkAnswer(this, '🔺', '🟥')">🔺</button>
-        </div>
-        <p class="feedback"></p>
-      </div>
-    </div>
-
     <div id="videoaulas" class="activity">
       <h2>Videoaulas Introdutórias</h2>
       <iframe src="https://www.youtube.com/embed/XATPQpqrKzU" title="Videoaula de Formas Geométricas" allowfullscreen></iframe>
@@ -180,32 +71,5 @@
       <p>O projeto <strong>Formando Formas</strong> foi criado para ensinar geometria de forma lúdica, acessível e acolhedora para todas as crianças, especialmente aquelas com neurodivergências.</p>
     </div>
   </main>
-
-  <script>
-    function showShape(name, emoji) {
-      const info = document.getElementById('info');
-      info.innerHTML = `
-        <h2>${emoji} ${name}</h2>
-        <p>Este é um <strong>${name}</strong>! Tente encontrar objetos com essa forma ao seu redor.</p>
-        <button onclick="hideShape()" style="margin-top: 15px; padding: 10px 15px; font-size: 1rem; border-radius: 10px; background-color: #b28dff; color: white; border: none;">Escolher outra forma</button>
-      `;
-      info.style.display = 'block';
-    }
-
-    function hideShape() {
-      document.getElementById('info').style.display = 'none';
-    }
-
-    function checkAnswer(button, selected, correct) {
-      const feedback = button.closest('.card').querySelector('.feedback');
-      if (selected === correct) {
-        feedback.innerHTML = '<strong>Parabéns! Você acertou! 🎉</strong>';
-        feedback.style.color = 'green';
-      } else {
-        feedback.innerHTML = 'Ops! Tente novamente. 😊';
-        feedback.style.color = 'red';
-      }
-    }
-  </script>
 </body>
 </html>
