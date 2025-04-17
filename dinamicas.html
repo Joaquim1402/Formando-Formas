@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formando Formas - Dinâmicas</title>
   <style>
     body {
@@ -34,16 +34,14 @@
       margin: 0;
       font-size: 2.5rem;
       font-weight: bold;
-      text-align: center;
     }
-    
-  header h2 {
+
+    header h2 {
       margin: 0;
-      font-size: 1.0rem;
+      font-size: 1rem;
       font-weight: bold;
-      text-align: center;
     }
-    
+
     nav {
       margin-top: 10px;
       display: flex;
@@ -101,22 +99,44 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 15px;
     }
 
     .quiz button {
-      margin: 8px;
-      padding: 12px 18px;
-      font-size: 1.1rem;
-      border-radius: 10px;
+      width: 80px;
+      height: 80px;
       border: none;
-      background-color: #b28dff;
-      color: white;
+      background: none;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
 
-    .quiz button:hover {
-      background-color: #9d6eff;
+    .shape {
+      width: 80px;
+      height: 80px;
+    }
+
+    .circle {
+      background-color: gold;
+      border-radius: 50%;
+    }
+
+    .square {
+      background-color: dodgerblue;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 70px solid orange;
+      background: none;
+    }
+
+    .rectangle {
+      background-color: crimson;
+      width: 100px;
+      height: 60px;
     }
 
     .feedback {
@@ -145,7 +165,6 @@
     </nav>
   </header>
 
-  <!-- Título centralizado -->
   <div class="intro">
     <h2>Vamos brincar e aprender?</h2>
   </div>
@@ -156,10 +175,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Círculo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟡')" aria-label="Escolha: Círculo Amarelo">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '🟡')" aria-label="Escolha: Quadrado Azul">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '🟡')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🟡')" aria-label="Escolha: Retângulo Vermelho">▭</button>
+          <button onclick="checkAnswer(this, 'circle', 'circle')"><div class="shape circle"></div></button>
+          <button onclick="checkAnswer(this, 'square', 'circle')"><div class="shape square"></div></button>
+          <button onclick="checkAnswer(this, 'triangle', 'circle')"><div class="triangle"></div></button>
+          <button onclick="checkAnswer(this, 'rectangle', 'circle')"><div class="shape rectangle"></div></button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -168,10 +187,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Quadrado?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🟦')" aria-label="Escolha: Círculo Amarelo">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '🟦')" aria-label="Escolha: Quadrado Azul">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '🟦')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🟦')" aria-label="Escolha: Retângulo Vermelho">▭</button>
+          <button onclick="checkAnswer(this, 'circle', 'square')"><div class="shape circle"></div></button>
+          <button onclick="checkAnswer(this, 'square', 'square')"><div class="shape square"></div></button>
+          <button onclick="checkAnswer(this, 'triangle', 'square')"><div class="triangle"></div></button>
+          <button onclick="checkAnswer(this, 'rectangle', 'square')"><div class="shape rectangle"></div></button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -180,10 +199,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Triângulo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '🔺')" aria-label="Escolha: Círculo Amarelo">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '🔺')" aria-label="Escolha: Quadrado Azul">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '🔺')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '🔺')" aria-label="Escolha: Retângulo Vermelho">▭</button>
+          <button onclick="checkAnswer(this, 'circle', 'triangle')"><div class="shape circle"></div></button>
+          <button onclick="checkAnswer(this, 'square', 'triangle')"><div class="shape square"></div></button>
+          <button onclick="checkAnswer(this, 'triangle', 'triangle')"><div class="triangle"></div></button>
+          <button onclick="checkAnswer(this, 'rectangle', 'triangle')"><div class="shape rectangle"></div></button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -192,10 +211,10 @@
       <div class="card">
         <h3>Qual dessas figuras é um Retângulo?</h3>
         <div class="quiz">
-          <button onclick="checkAnswer(this, '🟡', '▭')" aria-label="Escolha: Círculo Amarelo">🟡</button>
-          <button onclick="checkAnswer(this, '🟦', '▭')" aria-label="Escolha: Quadrado Azul">🟦</button>
-          <button onclick="checkAnswer(this, '🔺', '▭')" aria-label="Escolha: Triângulo Laranja">🔺</button>
-          <button onclick="checkAnswer(this, '▭', '▭')" aria-label="Escolha: Retângulo Vermelho">▭</button>
+          <button onclick="checkAnswer(this, 'circle', 'rectangle')"><div class="shape circle"></div></button>
+          <button onclick="checkAnswer(this, 'square', 'rectangle')"><div class="shape square"></div></button>
+          <button onclick="checkAnswer(this, 'triangle', 'rectangle')"><div class="triangle"></div></button>
+          <button onclick="checkAnswer(this, 'rectangle', 'rectangle')"><div class="shape rectangle"></div></button>
         </div>
         <p class="feedback"></p>
       </div>
@@ -203,7 +222,7 @@
   </main>
 
   <footer>
-    | 2025 Formando Formas - Projeto da displina de Práticas Curriculares de Extensão |
+    | 2025 Formando Formas - Projeto da disciplina de Práticas Curriculares de Extensão |
   </footer>
 
   <script>
